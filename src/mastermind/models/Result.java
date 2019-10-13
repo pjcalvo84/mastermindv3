@@ -13,16 +13,19 @@ class Result {
 		this.whites = whites;
 	}
 
-	boolean isWinner() {
+	public boolean isWinner() {
 		return this.blacks == Combination.getWidth();
 	}
 
-	int getBlacks() {
+	public int getBlacks() {
 		return this.blacks;
 	}
 
-	int getWhites() {
+	public int getWhites() {
 		return this.whites;
 	}
 
+	public Result copy() {
+        return new Result(this.blacks, this.whites);
+    }
 }

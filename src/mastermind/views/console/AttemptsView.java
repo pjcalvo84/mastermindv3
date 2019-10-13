@@ -1,20 +1,20 @@
 package mastermind.views.console;
 
+import mastermind.controllers.PlayController;
 import mastermind.controllers.ProposalController;
 import mastermind.views.MessageView;
 import santaTecla.utils.WithConsoleView;
 
-public class AttemptsView extends WithConsoleView {
+public class AttemptsView{
 
-	private ProposalController proposalController;
+	private PlayController playController;
 
-	AttemptsView(ProposalController proposalController) {
-		this.proposalController = proposalController;
+	AttemptsView(PlayController playController) {
+		this.playController = playController;
 	}
 
-	void writeln() {
-		this.console.writeln(MessageView.ATTEMPTS.getMessage().replaceFirst("#attempts",
-				"" + this.proposalController.getAttempts()));
+	public void writeln() {
+	    MessageView.ATTEMPTS.writlne(playController.getAttempts());
 	}
 
 }

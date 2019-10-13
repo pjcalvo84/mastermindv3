@@ -1,17 +1,8 @@
 package mastermind.views.console;
 
-import java.util.List;
+class ProposalView{
 
-import mastermind.controllers.ProposalController;
-import mastermind.types.Color;
-import mastermind.types.Error;
-import mastermind.views.console.ErrorView;
-import santaTecla.utils.WithConsoleView;
-import mastermind.views.MessageView;
-
-class ProposalView extends WithConsoleView {
-
-	void interact(ProposalController proposalController) {
+	/*void interact(ProposalController proposalController) {
 		Error error;
 		do {
 			List<Color> colors = new ProposedCombinationView(proposalController).read();
@@ -33,5 +24,5 @@ class ProposalView extends WithConsoleView {
 			this.console.writeln(MessageView.LOOSER.getMessage());
 		}
 	}
-
+*/
 }
