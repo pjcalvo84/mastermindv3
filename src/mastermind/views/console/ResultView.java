@@ -1,9 +1,7 @@
 package mastermind.views.console;
 
 import mastermind.controllers.PlayController;
-import mastermind.controllers.ProposalController;
 import mastermind.views.MessageView;
-import santaTecla.utils.WithConsoleView;
 
 class ResultView{
 	

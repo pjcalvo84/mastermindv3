@@ -4,6 +4,7 @@ import mastermind.controllers.AcceptorController;
 import mastermind.controllers.Controller;
 import mastermind.controllers.Logic;
 import mastermind.views.View;
+import mastermind.views.console.ConsoleView;
 
 public abstract class Mastermind {
 	
@@ -13,10 +14,10 @@ public abstract class Mastermind {
 	
 	protected Mastermind() {
 		this.logic = new Logic();
-		this.view = this.createView();
+		this.view = new ConsoleView();
 	}
-	
-	protected abstract View createView();
+
+	protected abstract Logic createLogic();
 
 	protected void play() {
 		AcceptorController controller;

@@ -1,6 +1,6 @@
 package mastermind.models;
 
-class Result {
+public class Result {
 
 	private int blacks = 0;
 
@@ -19,6 +19,14 @@ class Result {
 
 	public int getBlacks() {
 		return this.blacks;
+	}
+
+	public void setBlacks(int blacks) {
+		this.blacks = blacks;
+	}
+
+	public void setWhites(int whites) {
+		this.whites = whites;
 	}
 
 	public int getWhites() {

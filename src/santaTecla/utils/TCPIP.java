@@ -1,5 +1,8 @@
 package santaTecla.utils;
 
+import mastermind.types.Color;
+import mastermind.types.Error;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -64,6 +67,15 @@ public class TCPIP{
 		this.out.flush();
 	}
 
+
+	public Error receiveError() {
+		String error = this.receiveLine();
+		if (error.equals("null")) {
+			return null;
+		}
+		return Error.valueOf(error);
+	}
+
 	public void send(int value) {
 		this.send("" + value);
 	}
@@ -92,6 +104,23 @@ public class TCPIP{
 		return result;
 	}
 
+	public Color receiveColor() {
+		String color = this.receiveLine();
+		if (color.equals("null")) {
+			return null;
+		}else {
+			return Color.valueOf(color);
+		}
+	}
+
+	public void send(Color value) {
+		if (value == null) {
+			this.send("null");
+		}else {
+			this.send(value.name());
+		}
+	}
+
 	public int receiveInt() {
 		int result = -1;
 		try {
@@ -100,6 +129,14 @@ public class TCPIP{
 			e.printStackTrace();
 		}
 		return result;
+	}
+
+	public void send(Error value) {
+		if (value == null) {
+			this.send("null");
+		}else {
+			this.send(value.name());
+		}
 	}
 
 	public void close() {
@@ -114,5 +151,4 @@ public class TCPIP{
 			ex.printStackTrace();
 		}
 	}
-
 }

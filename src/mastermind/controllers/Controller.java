@@ -1,8 +1,7 @@
 package mastermind.controllers;
 
-import mastermind.models.Game;
 import mastermind.models.Session;
-import mastermind.models.State;
+import mastermind.models.StateValue;
 
 public abstract class Controller {
 
@@ -14,5 +13,9 @@ public abstract class Controller {
 
 	public int getWidth() {
 		return this.session.getWidth();
+	}
+
+	public StateValue getValueState() {
+		return this.session.getValueState();
 	}
 }

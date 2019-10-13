@@ -4,11 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import mastermind.controllers.PlayController;
-import mastermind.controllers.ProposalController;
 import mastermind.types.Color;
-import mastermind.views.console.ColorView;
 import santaTecla.utils.Console;
-import santaTecla.utils.WithConsoleView;
 import mastermind.views.MessageView;
 
 class ProposedCombinationView {

@@ -1,76 +1,42 @@
 package mastermind.controllers;
 
-import java.util.List;
-
 import mastermind.models.Session;
 import mastermind.types.Color;
 import mastermind.types.Error;
 
-public class PlayController extends AcceptorController {
+import java.util.List;
 
-    private ProposalController proposalController;
+public abstract class PlayController extends AcceptorController {
 
-    private RedoController redoController;
+	protected PlayController(Session session) {
+		super(session);
+	}
 
-    private UndoController undoController;
+	public abstract Error addProposedCombination(List<Color> colors);
 
+	public abstract void undo();
 
-    PlayController(Session session) {
-        super(session);
-        this.proposalController = new ProposalController(this.session);
-        this.undoController = new UndoController(this.session);
-        this.redoController = new RedoController(this.session);
-    }
+	public abstract void redo();
 
-    @Override
-    public void accept(ControllersVisitor controllersVisitor) {
-        controllersVisitor.visit(this);
-    }
+	public abstract boolean undoable();
 
+	public abstract boolean redoable();
 
-    public Error addProposedCombination(List<Color> colors) {
-        return this.proposalController.addProposedCombination(colors);
-    }
+	public abstract boolean isWinner();
 
-    public boolean isWinner() {
-        return this.proposalController.isWinner();
-    }
+	public abstract boolean isLooser();
 
-    public boolean isLooser() {
-        return this.proposalController.isLooser();
-    }
+	public abstract List<Color> getColors(int position);
+	
+	public abstract int getBlacks(int position);
+	
+	public abstract int getWhites(int position);
 
-    public int getAttempts() {
-        return this.proposalController.getAttempts();
-    }
+	public abstract int getAttempts();
 
-    public List<Color> getColors(int position) {
-        return this.proposalController.getColors(position);
-    }
-
-    public int getBlacks(int position) {
-        return this.proposalController.getBlacks(position);
-    }
-
-    public int getWhites(int position) {
-        return this.proposalController.getWhites(position);
-    }
-
-    public void undo() {
-        this.undoController.undo();
-    }
-
-    public void redo() {
-        this.redoController.redo();
-    }
-
-    public boolean undoable() {
-        return this.undoController.undoable();
-    }
-
-    public boolean redoable() {
-        return this.redoController.redoable();
-    }
-
+	@Override
+	public void accept(ControllersVisitor controllersVisitor) {
+		controllersVisitor.visit(this);
+	}
 
 }

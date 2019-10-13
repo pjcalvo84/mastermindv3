@@ -1,19 +1,15 @@
 package mastermind.controllers;
 
-import mastermind.models.Game;
 import mastermind.models.Session;
-import mastermind.models.State;
 
-public class StartController extends AcceptorController {
+public abstract class StartController extends AcceptorController {
 
 	public StartController(Session session) {
 		super(session);
 	}
-	
-	public void start() {
-		this.session.next();
-	}
-	
+
+	public abstract void start();
+
 	@Override
 	public void accept(ControllersVisitor controllersVisitor) {
 		controllersVisitor.visit(this);
